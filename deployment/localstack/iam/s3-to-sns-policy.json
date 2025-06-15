@@ -1,0 +1,22 @@
+{
+    "Version": "2008-10-17",
+    "Id": "s3-to-sns",
+    "Statement": [
+        {
+            "Sid": "send-message-to-topic-on-upload",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": [
+                "SNS:Publish"
+            ],
+            "Resource": "arn:aws:sns:eu-central-1:000000000000:notifiable-bucket",
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:s3:*:*:notifiable-bucket"
+                }
+            }
+        }
+    ]
+}

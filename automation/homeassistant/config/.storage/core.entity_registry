@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "minor_version": 6,
+    "key": "core.entity_registry",
+    "data": {
+        "entities": [
+            {
+                "area_id": null,
+                "capabilities": null,
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_category": null,
+                "entity_id": "person.root",
+                "hidden_by": null,
+                "icon": null,
+                "id": "cc9562ba1d9b1cf26e068fe94a20a300",
+                "name": null,
+                "options": {},
+                "original_device_class": null,
+                "original_icon": null,
+                "original_name": "root",
+                "platform": "person",
+                "supported_features": 0,
+                "unique_id": "root",
+                "unit_of_measurement": null
+            }
+        ]
+    }
+}

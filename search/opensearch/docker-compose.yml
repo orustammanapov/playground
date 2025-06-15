@@ -1,0 +1,220 @@
+version: '3.7'
+
+services:
+  osm_01:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osm_01
+    restart: unless-stopped
+    environment:
+      node.name: osm_01
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/master_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osm_01:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osm_02:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osm_02
+    restart: unless-stopped
+    environment:
+      node.name: osm_02
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/master_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osm_02:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osm_03:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osm_03
+    restart: unless-stopped
+    environment:
+      node.name: osm_03
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/master_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osm_03:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osd_01:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osd_01
+    restart: unless-stopped
+    environment:
+      node.name: osd_01
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/data_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osd_01:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osd_02:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osd_02
+    restart: unless-stopped
+    environment:
+      node.name: osd_02
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/data_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osd_02:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osd_03:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osd_03
+    restart: unless-stopped
+    environment:
+      node.name: osd_03
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/data_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osd_03:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osd_04:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osd_04
+    restart: unless-stopped
+    environment:
+      node.name: osd_04
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/data_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ../.././.opensearch/data/osd_04:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  osc_01:
+    image: opensearchproject/opensearch:${OPEN_SEARCH_VERSION}
+    container_name: osc_01
+    restart: unless-stopped
+    depends_on:
+      - osm_01
+      - osm_02
+      - osm_03
+      - osd_01
+      - osd_02
+    environment:
+      node.name: osc_01
+    ports:
+      - "${OPEN_SEARCH_HTTP_PORT}:9200"
+      - 9600:9600 # required for Performance Analyzer
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    volumes:
+      - ./config/coordinating_node.yml:/usr/share/opensearch/config/opensearch.yml:ro
+      - ./config/jvm.options:/usr/share/opensearch/config/jvm.options:ro
+      - ./config/batch_metrics_enabled.conf:/usr/share/opensearch/data/batch_metrics_enabled.conf:delegated
+      - ./config/logging_enabled.conf:/usr/share/opensearch/data/logging_enabled.conf:delegated
+      - ./config/performance_analyzer_enabled.conf:/usr/share/opensearch/data/performance_analyzer_enabled.conf:delegated
+      - ./config/rca_enabled.conf:/usr/share/opensearch/data/rca_enabled.conf:delegated
+      - ./.opensearch/data/osc_01:/usr/share/opensearch/data:delegated
+    networks:
+      - opensearch
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:${OPEN_SEARCH_VERSION}
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["http://osc_01:9200"]'
+    networks:
+      - opensearch
+
+networks:
+  opensearch:
+    name: opensearch
+    driver: bridge

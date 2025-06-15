@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    ports:
+      - 7000:7000
+
+networks:
+
+  playground:
+    driver: bridge

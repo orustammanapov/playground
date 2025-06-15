@@ -1,0 +1,19 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672 # main port
+      - 15672:15672 # console port
+  mysql:
+    image: mysql:5.7
+    ports: 
+      - 3306:3306
+    volumes:
+      - ./volumes/data/mysql:/var/lib/mysql
+      - ./volumes/init/mysql:/docker-entrypoint-initdb.d
+      - ./volumes/run/mysqld:/var/run/mysqld
+      - ./volumes/log/mysql:/var/log/mysql
+    environment:
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}

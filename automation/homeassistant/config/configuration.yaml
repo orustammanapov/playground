@@ -1,0 +1,16 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+http:
+  cors_allowed_origins:
+    - 172.20.0.1
+    - 172.29.0.1 
+    - 172.31.0.1

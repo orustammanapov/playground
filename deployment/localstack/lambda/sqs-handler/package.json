@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "aws-cdk": "^1.70.0",
+    "aws-cdk-local": "^1.65.2",
+    "aws-sdk": "^2.1048.0",
+    "lodash": "^4.17.21"
+  }
+}

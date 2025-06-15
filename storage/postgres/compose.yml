@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  play-postgres:
+    image: postgres:alpine3.17
+    container_name: play-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+
+  play-postgres-adminer:
+    image: adminer
+    container_name: play-postgres-adminer
+    ports:
+      - 8083:8080

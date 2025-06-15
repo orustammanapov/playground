@@ -1,0 +1,18 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] provider[\"registry.terraform.io/hashicorp/random\"]" [label = "provider[\"registry.terraform.io/hashicorp/random\"]", shape = "diamond"]
+		"[root] random_integer.pet_length (expand)" [label = "random_integer.pet_length", shape = "box"]
+		"[root] random_pet.dog (expand)" [label = "random_pet.dog", shape = "box"]
+		"[root] var.max_length" [label = "var.max_length", shape = "note"]
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] random_pet.dog (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/random\"] (close)" -> "[root] random_pet.dog (expand)"
+		"[root] random_integer.pet_length (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"]"
+		"[root] random_integer.pet_length (expand)" -> "[root] var.max_length"
+		"[root] random_pet.dog (expand)" -> "[root] random_integer.pet_length (expand)"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"] (close)"
+	}
+}
+

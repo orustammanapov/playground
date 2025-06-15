@@ -1,0 +1,26 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<scriptApproval plugin="script-security@1.75">
+  <approvedScriptHashes/>
+  <approvedSignatures>
+    <string>method com.cloudbees.hudson.plugins.folder.computed.ComputedFolder getComputation</string>
+    <string>method hudson.model.Item getName</string>
+    <string>method hudson.model.ItemGroup getAllItems java.lang.Class</string>
+    <string>method java.lang.Runnable run</string>
+    <string>method java.time.temporal.TemporalAccessor get java.time.temporal.TemporalField</string>
+    <string>method java.time.temporal.WeekFields weekBasedYear</string>
+    <string>method java.time.temporal.WeekFields weekOfWeekBasedYear</string>
+    <string>method jenkins.branch.BranchSource setStrategy jenkins.branch.BranchPropertyStrategy</string>
+    <string>method jenkins.branch.MultiBranchProject getSources</string>
+    <string>method jenkins.scm.RunWithSCM getChangeSets</string>
+    <string>method org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper getRawBuild</string>
+    <string>new jenkins.branch.DefaultBranchPropertyStrategy jenkins.branch.BranchProperty[]</string>
+    <string>new jenkins.branch.NoTriggerBranchProperty</string>
+    <string>staticMethod java.time.temporal.WeekFields of java.util.Locale</string>
+    <string>staticMethod jenkins.model.Jenkins getInstance</string>
+  </approvedSignatures>
+  <aclApprovedSignatures/>
+  <approvedClasspathEntries/>
+  <pendingScripts/>
+  <pendingSignatures/>
+  <pendingClasspathEntries/>
+</scriptApproval>

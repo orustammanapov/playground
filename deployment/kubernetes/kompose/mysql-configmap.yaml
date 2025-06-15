@@ -1,0 +1,50 @@
+apiVersion: v1
+data:
+  my.cnf: "#\n# The MySQL database server configuration file.\n#\n# You can copy this
+    to one of:\n# - \"/etc/mysql/my.cnf\" to set global options,\n# - \"~/.my.cnf\"
+    to set user-specific options.\n# \n# One can use all long options that the program
+    supports.\n# Run program with --help to get a list of available options and with\n#
+    --print-defaults to see which it would actually understand and use.\n#\n# For
+    explanations see\n# http://dev.mysql.com/doc/mysql/en/server-system-variables.html\n\n#
+    This will be passed to all mysql clients\n# It has been reported that passwords
+    should be enclosed with ticks/quotes\n# escpecially if they contain \"#\" chars...\n#
+    Remember to edit /etc/mysql/debian.cnf when changing the socket location.\n[client]\nport\t\t=
+    3306\nsocket\t\t= /var/run/mysqld/mysqld.sock\n# socket\t\t= ./mysqld.sock\n\n#
+    Here is entries for some specific programs\n# The following values assume you
+    have at least 32M ram\n\n# This was formally known as [safe_mysqld]. Both versions
+    are currently parsed.\n[mysqld_safe]\nsocket\t\t= /var/run/mysqld/mysqld.sock\n#
+    socket\t\t= ./mysqld.sock\nnice\t\t= 0\n\n[mysqld]\n#\n# * Basic Settings\n#\nuser\t\t=
+    mysql\npid-file\t= /var/run/mysqld/mysqld.pid\nsocket\t\t= /var/run/mysqld/mysqld.sock\n#
+    socket\t\t= ./mysqld.sock\nport\t\t= 3306\nbasedir\t\t= /usr\ndatadir\t\t= /var/lib/mysql\ntmpdir\t\t=
+    /tmp\nlc-messages-dir\t= /usr/share/mysql\nskip-external-locking\n#\n# Instead
+    of skip-networking the default is now to listen only on\n# localhost which is
+    more compatible and is not less secure.\nbind-address\t\t= 127.0.0.1\n#\n# * Fine
+    Tuning\n#\nkey_buffer\t\t= 16M\nmax_allowed_packet\t= 16M\nthread_stack\t\t= 192K\nthread_cache_size
+    \      = 8\n# This replaces the startup script and checks MyISAM tables if needed\n#
+    the first time they are touched\nmyisam-recover         = BACKUP\n#max_connections
+    \       = 100\n#table_cache            = 64\n#thread_concurrency     = 10\n#\n#
+    * Query Cache Configuration\n#\nquery_cache_limit\t= 1M\nquery_cache_size        =
+    16M\n#\n# * Logging and Replication\n#\n# Both location gets rotated by the cronjob.\n#
+    Be aware that this log type is a performance killer.\n# As of 5.1 you can enable
+    the log at runtime!\n#general_log_file        = /var/log/mysql/mysql.log\n#general_log
+    \            = 1\n#\n# Error log - should be very few entries.\n#\nlog_error =
+    /var/log/mysql/error.log\n#\n# Here you can see queries with especially long duration\n#log_slow_queries\t=
+    /var/log/mysql/mysql-slow.log\n#long_query_time = 2\n#log-queries-not-using-indexes\n#\n#
+    The following can be used as easy to replay backup logs or for replication.\n#
+    note: if you are setting up a replication slave, see README.Debian about\n#       other
+    settings you may need to change.\n#server-id\t\t= 1\n#log_bin\t\t\t= /var/log/mysql/mysql-bin.log\nexpire_logs_days\t=
+    10\nmax_binlog_size         = 100M\n#binlog_do_db\t\t= include_database_name\n#binlog_ignore_db\t=
+    include_database_name\n#\n# * InnoDB\n#\n# InnoDB is enabled by default with a
+    10MB datafile in /var/lib/mysql/.\n# Read the manual for more InnoDB related options.
+    There are many!\n#\n# * Security Features\n#\n# Read the manual, too, if you want
+    chroot!\n# chroot = /var/lib/mysql/\n#\n# For generating SSL certificates I recommend
+    the OpenSSL GUI \"tinyca\".\n#\n# ssl-ca=/etc/mysql/cacert.pem\n# ssl-cert=/etc/mysql/server-cert.pem\n#
+    ssl-key=/etc/mysql/server-key.pem\n\n\n\n[mysqldump]\nquick\nquote-names\nmax_allowed_packet\t=
+    16M\n\n[mysql]\n#no-auto-rehash\t# faster start of mysql but no tab completition\n\n[isamchk]\nkey_buffer\t\t=
+    16M\n\n#\n# * IMPORTANT: Additional settings that can override those from this
+    file!\n#   The files must end with '.cnf', otherwise they'll be ignored.\n#\n!includedir
+    /etc/mysql/conf.d/\n"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: mysql

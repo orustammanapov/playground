@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  localstack:
+    container_name: "localstack"
+    image: localstack/localstack:latest
+    ports:
+      # - "53:53"
+      # - "53:53/udp"
+      # - "443:443"
+      - "4566:4566"
+      # - "4571:4571"
+    environment:
+      - USE_SINGLE_REGION=1
+      - DEFAULT_REGION=eu-central-1
+      - KINESIS_PROVIDER=kinesalite
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - HOST_TMP_FOLDER=./.localstack
+      - LAMBDA_EXECUTOR=docker-reuse
+      # - LAMBDA_REMOTE_DOCKER=false
+      # - LOCALSTACK_HOSTNAME=host.docker.internal
+      # - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.localstack:/tmp/localstack

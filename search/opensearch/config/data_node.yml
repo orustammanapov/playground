@@ -1,0 +1,23 @@
+cluster.name: docker-cluster
+cluster.initial_master_nodes:
+  - osm_01
+  - osm_02
+  - osm_03
+discovery.seed_hosts:
+  - osm_01
+  - osm_02
+  - osm_03
+network.host: 0.0.0.0
+node.roles: [data]
+
+http.cors.enabled: true
+http.cors.allow-origin: "http://localhost:8080"
+
+plugins.security.audit.config.enable_ssl: false
+plugins.security.audit.config.verify_hostnames: false
+plugins.security.audit.config.enable_ssl_client_auth: false
+plugins.security.audit.config.webhook.ssl.verify: false
+
+plugins.security.disabled: true
+plugins.security.allow_unsafe_democertificates: true
+plugins.security.advanced_modules_enabled: false

@@ -1,0 +1,12 @@
+git:latest
+maven-plugin:latest
+pipeline-maven:latest
+pipeline-model-definition:latest
+pipeline-build-step:latest
+configuration-as-code:latest
+jacoco:latest
+email-ext:latest
+ws-cleanup:latest
+workflow-aggregator:latest
+docker-workflow:latest
+blueocean:latest
